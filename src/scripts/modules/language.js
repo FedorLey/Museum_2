@@ -16,7 +16,7 @@ export const initLanguageSwitcher = () => {
         window.localStorage.setItem('preferredLang', targetLang);
       }
 
-      document.body.style.transition = 'opacity 0.4s ease-out';
+      document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
 
       setTimeout(() => {
@@ -28,12 +28,10 @@ export const initLanguageSwitcher = () => {
   const savedLang = window.localStorage.getItem('preferredLang');
   const currentPath = window.location.pathname;
 
-  // 🔥 Секретний соус: перевіряємо, чи ми ВЖЕ в англійській папці
-  const isEnglishPage = currentPath.includes('/en/');
+  const isEnglishPage = currentPath.includes('en.html');
 
-  // Якщо юзер обрав 'en' і зараз знаходиться на українській сторінці
   if (savedLang === 'en' && !isEnglishPage) {
     document.body.style.opacity = '0';
-    window.location.replace('./en/index.html');
+    window.location.replace('./en.html');
   }
 };
