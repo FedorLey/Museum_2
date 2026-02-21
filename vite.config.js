@@ -1,4 +1,5 @@
 export default {
+  base: '/Museum_2/',
   build: {
     rollupOptions: {
       input: {
